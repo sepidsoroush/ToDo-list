@@ -6,9 +6,11 @@ import AddTask from './components/AddTask';
 function App() {
   return (
     <div className="App">
-      <h1>To Do List</h1>
-      <AddTask/>
-      <Task />
+      <div className='container'>
+        <h1>To Do List</h1>
+        <AddTask/>
+        <Task/>
+      </div>
     </div>
   );
 }
