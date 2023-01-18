@@ -19,4 +19,7 @@ body{
     font-family: 'Inter', sans-serif;
     color: var(--light--font);
 }
-
+.container{
+    display: flex;
+    flex-direction: column;
+}
