@@ -1,3 +1,11 @@
+/* Define color variables */
+:root{
+    --light--body : #F9F7F7 ;
+    --light--side : #DBE2EF;
+    --light--button :#3F72AF ;
+    --light--font : #112D4E ;
+}
+
 *{
     margin : 0;
     padding: 0;
