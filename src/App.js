@@ -1,15 +1,13 @@
 import './App.css';
 import {Sun, Moon} from 'tabler-icons-react';
-import Task from './components/Task';
-import AddTask from './components/AddTask';
+import TaskList from './components/TaskList';
 
 function App() {
   return (
     <div className="App">
       <div className='container'>
         <h1>To Do List</h1>
-        <AddTask/>
-        <Task/>
+        <TaskList />
       </div>
     </div>
   );
