@@ -4,20 +4,20 @@ import {Plus, Calendar , SquareCheck, Square, Trash, Edit} from 'tabler-icons-re
 
 const TaskList = ({item , checkBox , removeItem, editItem , dateItem}) => {
     return (
-        <div className="task-container">
+        <div>
             <div>
-                <div className="task-border">
-                    <Square className="btn"/>
+                <div>
+                    <Square/>
                     <p>task name</p>
-                    <p className="date">01/23</p>
+                    <p>01/23</p>
                 </div>
-                <Trash className="btn"/>
-                <Edit className="btn"/>
+                <Trash/>
+                <Edit/>
             </div>
-            <div className="add-container">
-                <Plus className="btn"/>
+            <div>
+                <Plus/>
                 <p>e.g. buy flower</p>
-                <Calendar className="btn"/>
+                <Calendar/>
             </div>
         </div>
       );
