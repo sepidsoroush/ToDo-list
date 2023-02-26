@@ -1,5 +1,5 @@
 import React from "react";
-import {Plus, Calendar , SquareCheck, Square, Trash, Edit} from 'tabler-icons-react';
+import {SquareCheck, Square, Trash, Edit} from 'tabler-icons-react';
 
 
 const TaskList = ({items , checkBox , removeItem, editItem}) => {
