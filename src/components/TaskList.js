@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import {SquareCheck, Square, Trash, Edit} from 'tabler-icons-react';
 
 
-const TaskList = ({items , checkBox , removeItem, editItem}) => {
+const TaskList = ({items , removeItem, editItem}) => {
+    const [check , setCheck] = useState(false);
     return (
         <div>
             {items.map((item)=>{
-                const {id , title , date} = item;
+                const {id , title ,date} = item;
                 return(
                     <article key={id}>
-                        <div>
-                            {checkBox? <SquareCheck/> : <Square />}
-                        </div>
+                        <button
+                        type="button"
+                        onClick={()=>setCheck(!check)}
+                        >
+                            { check? <SquareCheck/> : <Square />}
+                        </button>
                         <div>
                             <p>{title}</p>
                             <p>{date}</p>
@@ -30,8 +34,6 @@ const TaskList = ({items , checkBox , removeItem, editItem}) => {
                                 <Trash />
                             </button>
                         </div>
-                        
-
                     </article>
                 )
             })}
