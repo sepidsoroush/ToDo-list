@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Plus , Edit } from "tabler-icons-react";
 import TaskList from "./TaskList";
+import Alert from "./Alert";
 
 const getLocalStorage = () =>{
     let list = localStorage.getItem('list');
@@ -16,10 +17,11 @@ const ToDoList = ()=>{
     const [list , setList] = useState(getLocalStorage());
     const [isEditing , setIsEditing] = useState(false);
     const [editId , setEditId] =useState(null);
+    const [alert , setAlert] = useState({show:false , type :'' ,message:'' });
     const handleSubmit =(e)=>{
         e.preventDefault();
         if(!name){
-            return null;
+            setAlert({show:true , type :'error' ,message:'Please Enter Value' })
         } else if (name && isEditing){
             setList(
                 list.map((item)=>{
@@ -32,6 +34,7 @@ const ToDoList = ()=>{
             setName('');
             setEditId(null);
             setIsEditing(false);
+            setAlert({show:true , type :'valid' ,message:'Value Changed' });
         }else {
             const newItem = { id: new Date().getTime().toString() , title: name};
             setList([...list , newItem]);
@@ -39,10 +42,15 @@ const ToDoList = ()=>{
             setIsEditing(false);
         }
     };
+    const showAlert = ()=>{
+        setAlert({show:false , type :'' ,message:'' });
+    }
     const clearList = ()=>{
+        setAlert({show:true , type :'error' ,message:'All Items Cleared' });
         setList([]);
     }
     const removeItem = (id) =>{
+        setAlert({show:true , type :'error' ,message:'Item Removed' });
         setList(list.filter((item)=> item.id !==id));
     }
     const editItem = (id) =>{
@@ -56,15 +64,14 @@ const ToDoList = ()=>{
             <form
             onSubmit={handleSubmit}
             >
+                {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
                 <input 
                 type="text"
-                placeholder="e.g. eggs"
+                placeholder="e.g. Buying grocery"
                 value={name}
                 onChange={(event)=>setName(event.target.value)}
                  />
-                <button
-                type="submit"
-                >
+                <button type="submit">
                     {isEditing ? <Edit/> :<Plus/>}
                 </button>
             </form>
