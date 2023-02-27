@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus } from "tabler-icons-react";
+import { Plus , Edit } from "tabler-icons-react";
 import TaskList from "./TaskList";
 
 const getLocalStorage = () =>{
@@ -14,12 +14,31 @@ const getLocalStorage = () =>{
 const ToDoList = ()=>{
     const [name , setName] = useState('');
     const [list , setList] = useState(getLocalStorage());
+    const [isEditing , setIsEditing] = useState(false);
+    const [editId , setEditId] =useState(null);
     const handleSubmit =(e)=>{
         e.preventDefault();
-        const newItem = { id: new Date().getTime().toString() , title: name};
-        setList([...list , newItem]);
-        setName('');
-    }
+        if(!name){
+            return null;
+        } else if (name && isEditing){
+            setList(
+                list.map((item)=>{
+                    if(item.id === editId){
+                        return {...item , title:name};
+                    }
+                    return item;
+                })
+            );
+            setName('');
+            setEditId(null);
+            setIsEditing(false);
+        }else {
+            const newItem = { id: new Date().getTime().toString() , title: name};
+            setList([...list , newItem]);
+            setName('');
+            setIsEditing(false);
+        }
+    };
     const clearList = ()=>{
         setList([]);
     }
@@ -27,7 +46,9 @@ const ToDoList = ()=>{
         setList(list.filter((item)=> item.id !==id));
     }
     const editItem = (id) =>{
+        setIsEditing(true);
         const selectedItem = list.find((item)=> item.id === id);
+        setEditId(id);
         setName(selectedItem.title);
     }
     return(
@@ -44,7 +65,7 @@ const ToDoList = ()=>{
                 <button
                 type="submit"
                 >
-                    <Plus />
+                    {isEditing ? <Edit/> :<Plus/>}
                 </button>
             </form>
             <div>
