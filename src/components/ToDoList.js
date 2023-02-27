@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useRef } from "react";
 import { Plus , Edit } from "tabler-icons-react";
 import TaskList from "./TaskList";
 import Alert from "./Alert";
@@ -18,6 +18,11 @@ const ToDoList = ()=>{
     const [isEditing , setIsEditing] = useState(false);
     const [editId , setEditId] =useState(null);
     const [alert , setAlert] = useState({show:false , type :'' ,message:'' });
+    const [date , setDate] = useState('');
+    const dateInputRef = useRef(null);
+    const handleChange = (e) =>{
+        setDate(e.target.value);
+    }
     const handleSubmit =(e)=>{
         e.preventDefault();
         if(!name){
@@ -26,7 +31,7 @@ const ToDoList = ()=>{
             setList(
                 list.map((item)=>{
                     if(item.id === editId){
-                        return {...item , title:name};
+                        return {...item , title:name , time :date};
                     }
                     return item;
                 })
@@ -36,7 +41,7 @@ const ToDoList = ()=>{
             setIsEditing(false);
             setAlert({show:true , type :'valid' ,message:'Value Changed' });
         }else {
-            const newItem = { id: new Date().getTime().toString() , title: name};
+            const newItem = { id: new Date().getTime().toString() , title: name , time : date};
             setList([...list , newItem]);
             setName('');
             setIsEditing(false);
@@ -70,6 +75,12 @@ const ToDoList = ()=>{
                 placeholder="e.g. Buying grocery"
                 value={name}
                 onChange={(event)=>setName(event.target.value)}
+                 />
+                <input 
+                type="date"
+                value={date}
+                onChange={handleChange}
+                ref={dateInputRef}
                  />
                 <button type="submit">
                     {isEditing ? <Edit/> :<Plus/>}

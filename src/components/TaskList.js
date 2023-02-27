@@ -7,7 +7,7 @@ const TaskList = ({items , removeItem, editItem}) => {
     return (
         <div>
             {items.map((item)=>{
-                const {id , title ,date} = item;
+                const {id , title ,time} = item;
                 return(
                     <article key={id}>
                         <button
@@ -18,7 +18,7 @@ const TaskList = ({items , removeItem, editItem}) => {
                         </button>
                         <div>
                             <p>{title}</p>
-                            <p>{date}</p>
+                            <p>{time}</p>
                         </div>
                         <div>
                             <button
