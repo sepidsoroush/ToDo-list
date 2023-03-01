@@ -54,6 +54,7 @@ const ToDoList = ()=>{
         setAlert({show:true , type :'error' ,message:'All Items Cleared' });
         setList([]);
     }
+
     const removeItem = (id) =>{
         setAlert({show:true , type :'error' ,message:'Item Removed' });
         setList(list.filter((item)=> item.id !==id));
@@ -64,6 +65,16 @@ const ToDoList = ()=>{
         setEditId(id);
         setName(selectedItem.title);
     }
+    const checkItem =(id) =>{
+        const selectedItem = list.map((item)=>{
+            if(item.id === id){
+                return {...item, status : !item.status};
+            }
+            return item;
+        });
+        setList(selectedItem);
+    }
+    console.log(list);
     return(
         <section>
             <form
@@ -87,17 +98,18 @@ const ToDoList = ()=>{
                 </button>
             </form>
             <div>
-                <TaskList 
+                <TaskList
+                key={list.id}
                 items={list} 
                 removeItem={removeItem} 
-                editItem={editItem} />
+                editItem={editItem}
+                checkItem={checkItem} />
             </div>
             <button
             onClick={clearList}
             >
                 Clear Items
             </button>
-            
         </section>
     )
 }
