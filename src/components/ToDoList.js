@@ -92,14 +92,14 @@ const ToDoList = ()=>{
                 onChange={(event)=>setName(event.target.value)}
                  />
                 <input
-                className="p-2 mx-4 w-10 text-xl rounded bg-cyan-500 focus:border-0" 
+                className="p-2 mx-4 w-10 text-xl rounded bg-slate-200 shadow-md focus:border-0" 
                 type="date"
                 value={date}
                 onChange={handleChange}
                 ref={dateInputRef}
                  />
                 <button 
-                className="p-2 w-10 rounded bg-cyan-500 text-center"
+                className="p-2 w-10 rounded bg-slate-200 shadow-md text-center"
                 type="submit">
                     {isEditing ? <Edit/> :<Plus/>}
                 </button>

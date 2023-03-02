@@ -36,6 +36,7 @@ const TaskList = ({items , removeItem, editItem , checkItem}) => {
                             className=''
                             type="button"
                             onClick={()=>editItem(id)}
+                            disabled={status? true : false}
                             >
                                 <Edit className={status? 'stroke-1 text-gray-600 m-1' :'stroke-1 text-emerald-600 m-1'} />
                             </button>
