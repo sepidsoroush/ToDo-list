@@ -76,7 +76,7 @@ const ToDoList = ()=>{
     }
     return(
         <section className="bg-white px-20 py-10 rounded-md shadow-lg">
-            <h1 className="text-4xl font-semibold text-center text-emerald-900">To Do List</h1>
+            <h1 className="text-4xl font-semibold text-center text-cyan-900">To Do List</h1>
             <div>
                 {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
             </div>
@@ -92,14 +92,14 @@ const ToDoList = ()=>{
                 onChange={(event)=>setName(event.target.value)}
                  />
                 <input
-                className="p-2 mx-4 w-10 text-lg rounded bg-emerald-500 focus:border-0" 
+                className="p-2 mx-4 w-10 text-lg rounded bg-cyan-500 focus:border-0" 
                 type="date"
                 value={date}
                 onChange={handleChange}
                 ref={dateInputRef}
                  />
                 <button 
-                className="p-2 w-10 rounded bg-emerald-500 text-center"
+                className="p-2 w-10 rounded bg-cyan-500 text-center"
                 type="submit">
                     {isEditing ? <Edit/> :<Plus/>}
                 </button>
