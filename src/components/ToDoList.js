@@ -37,6 +37,7 @@ const ToDoList = ()=>{
                 })
             );
             setName('');
+            setDate('')
             setEditId(null);
             setIsEditing(false);
             setAlert({show:true , type :'valid' ,message:'Value Changed' });
@@ -44,6 +45,7 @@ const ToDoList = ()=>{
             const newItem = { id: new Date().getTime().toString() , title: name , time : date};
             setList([...list , newItem]);
             setName('');
+            setDate('');
             setIsEditing(false);
         }
     };
