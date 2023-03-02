@@ -76,7 +76,7 @@ const ToDoList = ()=>{
     }
     return(
         <section className="bg-white px-20 py-10 rounded-md shadow-lg">
-            <h1 className="text-4xl font-semibold text-center text-blue-900">To Do List</h1>
+            <h1 className="text-4xl font-semibold text-center text-emerald-900">To Do List</h1>
             <div>
                 {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
             </div>
@@ -112,11 +112,13 @@ const ToDoList = ()=>{
                 editItem={editItem}
                 checkItem={checkItem} />
             </div>
-            <button
-            onClick={clearList}
-            >
-                Clear Items
-            </button>
+            <div className="flex justify-center items-center ">
+                <button 
+                className="px-4 py-2 bg-red-50 text-red-700 text-sm font-semibold shadow-md"
+                onClick={clearList}>
+                    Clear Items
+                </button>
+            </div>
         </section>
     )
 }
