@@ -75,8 +75,8 @@ const ToDoList = ()=>{
         setList(selectedItem);
     }
     return(
-        <section>
-            <h1>To Do List</h1>
+        <section className="bg-white px-20 py-10 rounded-md shadow-lg">
+            <h1 className="text-4xl font-semibold text-center mb-5">To Do List</h1>
             <form
             onSubmit={handleSubmit}
             >
