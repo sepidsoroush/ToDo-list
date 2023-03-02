@@ -76,24 +76,31 @@ const ToDoList = ()=>{
     }
     return(
         <section className="bg-white px-20 py-10 rounded-md shadow-lg">
-            <h1 className="text-4xl font-semibold text-center mb-5">To Do List</h1>
-            <form
-            onSubmit={handleSubmit}
-            >
+            <h1 className="text-4xl font-semibold text-center text-blue-900">To Do List</h1>
+            <div>
                 {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
+            </div>
+            <form
+            className="flex flex-row flex-nowrap  shadow-md rounded  border  my-4 p-2"
+            onSubmit={handleSubmit}
+            > 
                 <input 
+                className="p-2 w-96 rounded focus:border-0"
                 type="text"
                 placeholder="e.g. Buying grocery"
                 value={name}
                 onChange={(event)=>setName(event.target.value)}
                  />
-                <input 
+                <input
+                className="p-2 mx-4 w-10 text-lg rounded bg-emerald-500 focus:border-0" 
                 type="date"
                 value={date}
                 onChange={handleChange}
                 ref={dateInputRef}
                  />
-                <button type="submit">
+                <button 
+                className="p-2 w-10 rounded bg-emerald-500 text-center"
+                type="submit">
                     {isEditing ? <Edit/> :<Plus/>}
                 </button>
             </form>
