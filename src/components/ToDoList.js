@@ -86,7 +86,6 @@ const ToDoList = ()=>{
             return (b.id - a.id);
         }
     });
-    console.log(list);
     return(
         <section className="bg-white md:px-14 sm:px-10 px-8 py-10 rounded-md shadow-lg">
             <h1 className="sm:text-4xl text-3xl font-semibold text-center text-cyan-900">To Do List</h1>

@@ -6,6 +6,7 @@ const Alert = ({list,type, message , removeAlert})=>{
             removeAlert();
         },3000);
         return ()=>clearTimeout(timeout);
+        // eslint-disable-next-line
     },[list]);
     return (
         <div
