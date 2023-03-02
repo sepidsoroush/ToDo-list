@@ -5,8 +5,7 @@ import ToDoList from './components/ToDoList';
 function App() {
   return (
     <div className="App">
-      <div>
-        <h1>To Do List</h1>
+      <div className='flex flex-col justify-center items-center mx-auto my-auto h-screen w-full bg-slate-100'>
         <ToDoList />
       </div>
     </div>

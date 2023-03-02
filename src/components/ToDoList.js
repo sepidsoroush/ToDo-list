@@ -76,6 +76,7 @@ const ToDoList = ()=>{
     }
     return(
         <section>
+            <h1>To Do List</h1>
             <form
             onSubmit={handleSubmit}
             >
