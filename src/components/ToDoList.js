@@ -75,8 +75,8 @@ const ToDoList = ()=>{
         setList(selectedItem);
     }
     return(
-        <section className="bg-white px-20 py-10 rounded-md shadow-lg">
-            <h1 className="text-4xl font-semibold text-center text-cyan-900">To Do List</h1>
+        <section className="bg-white md:px-14 sm:px-10 px-8 py-10 rounded-md shadow-lg">
+            <h1 className="sm:text-4xl text-3xl font-semibold text-center text-cyan-900">To Do List</h1>
             <div>
                 {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
             </div>
@@ -85,14 +85,14 @@ const ToDoList = ()=>{
             onSubmit={handleSubmit}
             > 
                 <input 
-                className="p-2 w-96 rounded focus:border-0"
+                className="p-2 md:96 sm:w-72 w-64 rounded focus:border-0"
                 type="text"
                 placeholder="e.g. Buying grocery"
                 value={name}
                 onChange={(event)=>setName(event.target.value)}
                  />
                 <input
-                className="p-2 mx-4 w-10 text-lg rounded bg-cyan-500 focus:border-0" 
+                className="p-2 mx-4 w-10 text-xl rounded bg-cyan-500 focus:border-0" 
                 type="date"
                 value={date}
                 onChange={handleChange}
@@ -114,7 +114,7 @@ const ToDoList = ()=>{
             </div>
             <div className="flex justify-center items-center ">
                 <button 
-                className="px-4 py-2 bg-red-50 text-red-700 text-sm font-semibold shadow-md"
+                className="px-4 py-2 mt-5 bg-red-50 text-red-700 text-sm font-semibold shadow-md"
                 onClick={clearList}>
                     Clear Items
                 </button>
