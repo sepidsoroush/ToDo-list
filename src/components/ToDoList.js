@@ -74,7 +74,6 @@ const ToDoList = ()=>{
         });
         setList(selectedItem);
     }
-    console.log(list);
     return(
         <section>
             <form
